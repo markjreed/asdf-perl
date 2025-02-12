@@ -1,0 +1,3 @@
+[submodule "perl-install"]
+	path = perl-install
+	url = https://github.com/skaji/perl-install
