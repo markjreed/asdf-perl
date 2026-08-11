@@ -60,8 +60,7 @@ install_default_perl_modules() {
 
   while read -r -a name; do
     printf '\nInstalling \033[33m%s\033[39m perl package... ' "${name[*]}"
-    PATH="$ASDF_INSTALL_PATH/bin:$PATH" cpanm "${extra_args[@]}" "${name[@]}" >/dev/null 2>&1 && rc=$? || rc=$?
-    if [[ $rc -eq 0 ]]; then
+    if PATH="$ASDF_INSTALL_PATH/bin:$PATH" cpanm "${extra_args[@]}" "${name[@]}" >/dev/null 2>&1; then
       echo -e "\033[32mSUCCESS\033[39m"
     else
       echo -e "\033[31mFAIL\033[39m"
